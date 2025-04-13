@@ -1,2 +1,2 @@
-# Online-Grocery-Store
-Internet Programming 32516 Assignment 1
+# Internet Programming 32516 Assignment 1 -Online-Grocery-Store
+
