@@ -23,6 +23,10 @@ const productSchema = new mongoose.Schema({
     type: Number,
     required: false,
   },
+  imageUrl: {
+    type: String,
+    required: false, // or true if every product must have one
+  },
 });
 
 const Product = mongoose.model("Product", productSchema);

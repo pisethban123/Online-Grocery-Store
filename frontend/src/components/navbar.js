@@ -25,12 +25,14 @@ const classes = {
     width: "80%",
     "&:focus-within": {
       backgroundColor: "#fff",
-      boxShadow: "0 0 0 2px #FF7043", // highlight border on focus
+      boxShadow: "0 0 0 2px #FF7043",
     },
   },
 };
 
-const Navbar = () => {
+const Navbar = ({ cart, toggleDrawer }) => {
+  const totalItems = (cart || []).reduce((sum, item) => sum + item.quantity, 0);
+
   return (
     <AppBar color="inherit" elevation={0}>
       <Toolbar
@@ -76,10 +78,13 @@ const Navbar = () => {
 
         {/* Right side */}
         <Box sx={{ display: "flex", alignItems: "center", mr: 8 }}>
-          <IconButton sx={{ color: theme.palette.primary.main }}>
+          <IconButton
+            onClick={toggleDrawer}
+            sx={{ color: theme.palette.primary.main }}
+          >
             <Typography sx={{ mr: 1 }}>Cart</Typography>
-            <Badge badgeContent={2} color="primary">
-              <ShoppingCart sx={{ size: "large" }} />
+            <Badge badgeContent={totalItems} color="primary">
+              <ShoppingCart sx={{ fontSize: "large" }} />
             </Badge>
           </IconButton>
         </Box>

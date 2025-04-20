@@ -29,14 +29,32 @@ const classes = {
   },
 };
 
-const Home = () => {
+const Home = ({ cart, setCart }) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  const addToCart = (product) => {
+    setCart((prevCart) => {
+      const existingItem = prevCart.find((item) => item.id === product._id);
+      if (existingItem) {
+        return prevCart.map((item) =>
+          item.id === product.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        );
+      } else {
+        return [...prevCart, { ...product, quantity: 1 }];
+      }
+    });
+  };
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
         const res = await axios.get("http://localhost:5000/api/products");
+        const sortedProducts = res.data.sort(
+          (a, b) => a.productId - b.productId
+        );
         setProducts(res.data);
         console.log(products);
         setLoading(false);
@@ -52,7 +70,7 @@ const Home = () => {
   if (loading) return <CircularProgress />;
 
   return (
-    <Layout>
+    <Layout cart={cart}>
       <Typography variant="h2" gutterBottom sx={{ my: 5 }}>
         Products
       </Typography>
@@ -71,9 +89,10 @@ const Home = () => {
               {product.imageUrl && (
                 <CardMedia
                   component="img"
-                  height="180"
+                  height="300"
                   image={product.imageUrl}
                   alt={product.name}
+                  sx={{ objectFit: "contain" }}
                 />
               )}
               <CardContent>
@@ -89,6 +108,7 @@ const Home = () => {
                   size="small"
                   fullWidth
                   sx={classes.addToCartButton}
+                  onClick={() => addToCart(product)}
                 >
                   Add to Cart
                 </Button>
