@@ -4,10 +4,12 @@ import {
   Toolbar,
   Typography,
   Box,
-  IconButton,
+  Button,
   InputBase,
   Badge,
+  IconButton,
 } from "@mui/material";
+import ClearIcon from "@mui/icons-material/Clear";
 import { ShoppingCart } from "@mui/icons-material";
 import SearchIcon from "@mui/icons-material/Search";
 import logo from "../assets/logo.png";
@@ -19,19 +21,30 @@ const classes = {
     alignItems: "center",
     px: 1.5,
     py: 0.5,
-    border: 2,
+    ml: 4,
+    border: 3,
     borderColor: "#f0f0f0",
     borderRadius: 3,
+    height: 48,
     width: "80%",
     "&:focus-within": {
-      backgroundColor: "#fff",
-      boxShadow: "0 0 0 2px #FF7043",
+      borderColor: theme.palette.primary.main,
     },
   },
 };
 
-const Navbar = ({ cart, toggleDrawer }) => {
+const Navbar = ({
+  cart,
+  setCart,
+  toggleDrawer,
+  searchQuery,
+  setSearchQuery,
+}) => {
   const totalItems = (cart || []).reduce((sum, item) => sum + item.quantity, 0);
+
+  const handleClear = () => {
+    setSearchQuery("");
+  };
 
   return (
     <AppBar color="inherit" elevation={0}>
@@ -72,21 +85,54 @@ const Navbar = ({ cart, toggleDrawer }) => {
         >
           <Box sx={classes.searchBox}>
             <SearchIcon sx={{ color: theme.palette.primary.main, mr: 1 }} />
-            <InputBase fullWidth placeholder="Search products" />
+            <InputBase
+              fullWidth
+              placeholder="Search product"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+            {searchQuery && (
+              <IconButton
+                onClick={handleClear}
+                sx={{ color: theme.palette.primary.main }}
+              >
+                <ClearIcon />
+              </IconButton>
+            )}
           </Box>
         </Box>
 
         {/* Right side */}
         <Box sx={{ display: "flex", alignItems: "center", mr: 8 }}>
-          <IconButton
-            onClick={toggleDrawer}
-            sx={{ color: theme.palette.primary.main }}
+          <Badge
+            badgeContent={totalItems}
+            color="primary"
+            sx={{
+              "& .MuiBadge-badge": {
+                border: "2px solid white", // White border
+                fontSize: "14px",
+                height: "28px",
+                minWidth: "28px",
+                borderRadius: "50%",
+              },
+            }}
           >
-            <Typography sx={{ mr: 1 }}>Cart</Typography>
-            <Badge badgeContent={totalItems} color="primary">
-              <ShoppingCart sx={{ fontSize: "large" }} />
-            </Badge>
-          </IconButton>
+            <Button
+              onClick={toggleDrawer}
+              variant="contained"
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                textTransform: "none",
+                color: theme.palette.primary.white,
+                borderColor: theme.palette.primary.main,
+              }}
+            >
+              <Typography sx={{ mr: 1, fontSize: 16 }}>Cart</Typography>
+
+              <ShoppingCart sx={{ fontSize: 24 }} />
+            </Button>
+          </Badge>
         </Box>
       </Toolbar>
     </AppBar>

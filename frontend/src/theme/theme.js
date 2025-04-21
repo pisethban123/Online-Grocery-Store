@@ -4,8 +4,6 @@ const main = "#ff5733";
 const lightMain = "#fca592";
 const darkMain = "#C70039";
 
-const { breakpoints } = createTheme();
-
 const theme = createTheme({
   palette: {
     primary: {
@@ -14,25 +12,19 @@ const theme = createTheme({
       green: "#92cf23",
       yellow: "#FFC300",
       maroon: "#900C3F",
-      white: "#FFFFFF",
-      black: "#000000",
       grey: "90a4ae",
-    },
-    light: {
       lightMain,
-      green: "#DAF7A6",
-      yellow: "#fbe088",
-      maroon: "#f5a1c2",
+      lightGreen: "#DAF7A6",
+      lightYellow: "#fbe088",
+      ligthMaroon: "#f5a1c2",
       white: "#FFFFFF",
       black: "#000000",
-      grey: "e0e0e0",
-    },
-    dark: {
+      lightgrey: "e0e0e0",
       darkMain,
-      green: "#beda8b",
-      yellow: "e4af02",
-      maroon: "#581845",
-      grey: "#616161",
+      darkGreen: "#beda8b",
+      darkYellow: "e4af02",
+      darkMaroon: "#581845",
+      darkGrey: "#616161",
     },
   },
   typography: {

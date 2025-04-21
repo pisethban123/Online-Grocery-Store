@@ -1,14 +1,53 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/home";
+import Delivery from "./pages/delivery";
 
 const App = () => {
   const [cart, setCart] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
+  const checkStock = () => {};
+  const onPlaceOrder = () => {};
+
+  // Optional: Persist cart state using localStorage
+  useEffect(() => {
+    const storedCart = localStorage.getItem("cart");
+    if (storedCart) {
+      setCart(JSON.parse(storedCart));
+    }
+  }, []);
+
+  // Save to localStorage whenever cart changes
+  useEffect(() => {
+    if (cart.length > 0) {
+      localStorage.setItem("cart", JSON.stringify(cart));
+    }
+  }, [cart]);
 
   return (
     <div>
       <Routes>
-        <Route path="/" element={<Home cart={cart} setCart={setCart} />} />
+        <Route
+          path="/"
+          element={
+            <Home
+              cart={cart}
+              setCart={setCart}
+              searchQuery={searchQuery}
+              setSearchQuery={setSearchQuery}
+            />
+          }
+        />
+        <Route
+          path="/delivery"
+          element={
+            <Delivery
+              cart={cart}
+              checkStock={checkStock}
+              onPlaceOrder={onPlaceOrder}
+            />
+          }
+        />
       </Routes>
     </div>
   );

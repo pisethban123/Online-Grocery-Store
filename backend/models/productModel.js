@@ -25,7 +25,15 @@ const productSchema = new mongoose.Schema({
   },
   imageUrl: {
     type: String,
-    required: false, // or true if every product must have one
+    required: false,
+  },
+  category: {
+    type: String,
+    required: false,
+  },
+  subcategory: {
+    type: String,
+    required: false,
   },
 });
 
