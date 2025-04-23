@@ -87,7 +87,7 @@ const Cart = ({ cart, setCart, open, toggleDrawer, products }) => {
           open: true,
           severity: "error",
           title: "Insufficient Stock",
-          message: "Some items were removed from your cart due to low stock",
+          message: "Some items were removed from your cart due to low in stock",
           confirmText: "GO BACK",
         });
       } else {

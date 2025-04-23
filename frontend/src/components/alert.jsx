@@ -29,10 +29,10 @@ const AlertDialog = ({
         },
       }}
     >
-      <DialogTitle>{title}</DialogTitle>
+      <DialogTitle sx={{ fontSize: "1.5rem" }}>{title}</DialogTitle>
 
       <DialogContent>
-        <Alert severity={severity} sx={{ fontSize: "1rem" }}>
+        <Alert severity={severity} sx={{ fontSize: "1.1rem" }}>
           {message}
         </Alert>
       </DialogContent>

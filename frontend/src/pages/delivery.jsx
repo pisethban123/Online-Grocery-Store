@@ -5,7 +5,6 @@ import {
   TextField,
   MenuItem,
   Button,
-  Alert,
   Grid,
 } from "@mui/material";
 import Layout from "../layouts/secondLayout";
@@ -25,7 +24,6 @@ const Delivery = ({ cart, setCart }) => {
     state: "",
   });
   const [errors, setErrors] = useState({});
-  const [submitError, setSubmitError] = useState("");
   const navigate = useNavigate();
   const [alertData, setAlertData] = useState({
     open: false,
@@ -95,7 +93,7 @@ const Delivery = ({ cart, setCart }) => {
           open: true,
           severity: "error",
           title: "Insufficient Stock",
-          message: "Some items were removed from your cart due to low stock",
+          message: "Some items were removed from your cart due to low in stock",
           confirmText: "GO BACK",
         });
       } else {
@@ -111,8 +109,9 @@ const Delivery = ({ cart, setCart }) => {
           open: true,
           severity: "success",
           title: "Successful Order",
-          message: "Your order has been placed successfully",
-          confirmText: "CONFIRM",
+          message:
+            "Thanks for your order! We’ve sent a confirmation email with your order details to your inbox.",
+          confirmText: "Done",
         });
       }
     } catch (err) {
@@ -138,13 +137,9 @@ const Delivery = ({ cart, setCart }) => {
             <Typography variant="h2" gutterBottom>
               Delivery details
             </Typography>
-            {submitError && (
-              <Alert severity="error" sx={{ mb: 1 }}>
-                {submitError}
-              </Alert>
-            )}
             {["name", "email", "mobile", "street"].map((field) => (
               <TextField
+                required
                 key={field}
                 label={field.charAt(0).toUpperCase() + field.slice(1)}
                 name={field}
@@ -158,6 +153,7 @@ const Delivery = ({ cart, setCart }) => {
             ))}
             <Box sx={{ display: "flex", gap: 2, flexDirection: "row" }}>
               <TextField
+                required
                 label="City"
                 name="city"
                 value={form.city}
@@ -168,6 +164,7 @@ const Delivery = ({ cart, setCart }) => {
                 margin="normal"
               />
               <TextField
+                required
                 select
                 label="State"
                 name="state"
@@ -197,6 +194,7 @@ const Delivery = ({ cart, setCart }) => {
                 variant="contained"
                 sx={{ height: 40, flex: 1 }}
                 onClick={handleSubmit}
+                disabled={Object.values(form).some((val) => !val)}
               >
                 Submit Order
               </Button>
