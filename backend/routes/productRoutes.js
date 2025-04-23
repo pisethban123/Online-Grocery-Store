@@ -2,12 +2,12 @@
 import express from "express";
 import {
   getAllProducts,
-  searchProduct,
+  deductStock,
 } from "../controllers/productController.js";
 
 const router = express.Router();
 
 router.get("/products", getAllProducts);
-router.get("/products/search", searchProduct);
+router.post("/products/deductStock", deductStock);
 
 export default router;

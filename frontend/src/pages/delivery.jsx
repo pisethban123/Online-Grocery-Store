@@ -12,10 +12,10 @@ import Layout from "../layouts/secondLayout";
 import theme from "../theme/theme";
 import { useNavigate } from "react-router-dom";
 import delivery from "../assets/delivery.png";
+import { checkCartStock } from "../utils/checkStock";
+import AlertDialog from "../components/alert";
 
-const states = ["NSW", "VIC", "QLD", "WA", "SA", "TAS", "ACT", "NT", "Others"];
-
-const Delivery = ({ cart, onPlaceOrder, checkStock }) => {
+const Delivery = ({ cart, setCart }) => {
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -27,6 +27,24 @@ const Delivery = ({ cart, onPlaceOrder, checkStock }) => {
   const [errors, setErrors] = useState({});
   const [submitError, setSubmitError] = useState("");
   const navigate = useNavigate();
+  const [alertData, setAlertData] = useState({
+    open: false,
+    severity: "",
+    title: "",
+    message: "",
+    confirmText: "",
+  });
+  const states = [
+    "NSW",
+    "VIC",
+    "QLD",
+    "WA",
+    "SA",
+    "TAS",
+    "ACT",
+    "NT",
+    "Others",
+  ];
 
   const validate = () => {
     const newErrors = {};
@@ -53,14 +71,55 @@ const Delivery = ({ cart, onPlaceOrder, checkStock }) => {
   const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
 
+  const clearCart = () => {
+    setCart([]);
+    localStorage.removeItem("cart");
+  };
+
   const handleSubmit = async () => {
     if (!validate()) return;
-    const outOfStock = await checkStock(cart);
-    if (outOfStock.length) {
-      setSubmitError(`Unavailable: ${outOfStock.join(", ")}`);
-      return;
+    try {
+      const { insufficientStockItems } = await checkCartStock(cart);
+
+      if (insufficientStockItems.length > 0) {
+        const updatedCart = cart.filter(
+          (cartItem) =>
+            !insufficientStockItems.some(
+              (outItem) => outItem.productId === cartItem.productId
+            )
+        );
+
+        setCart(updatedCart);
+        localStorage.setItem("cart", JSON.stringify(updatedCart));
+        setAlertData({
+          open: true,
+          severity: "error",
+          title: "Insufficient Stock",
+          message: "Some items were removed from your cart due to low stock",
+          confirmText: "GO BACK",
+        });
+      } else {
+        await fetch("http://localhost:5000/api/products/deductStock", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ items: cart }),
+        });
+        clearCart();
+        setAlertData({
+          open: true,
+          severity: "success",
+          title: "Successful Order",
+          message: "Your order has been placed successfully",
+          confirmText: "CONFIRM",
+        });
+      }
+    } catch (err) {
+      console.error("Error checking stock:", err);
+      console.log(cart);
+      alert("Error verifying stock. Please try again later.");
     }
-    onPlaceOrder(form);
   };
 
   return (
@@ -91,7 +150,7 @@ const Delivery = ({ cart, onPlaceOrder, checkStock }) => {
                 name={field}
                 value={form[field]}
                 onChange={handleChange}
-                error={!!errors[field]}
+                error={errors[field]}
                 helperText={errors[field] || " "}
                 fullWidth
                 margin="normal"
@@ -103,7 +162,7 @@ const Delivery = ({ cart, onPlaceOrder, checkStock }) => {
                 name="city"
                 value={form.city}
                 onChange={handleChange}
-                error={!!errors.city}
+                error={errors.city}
                 helperText={errors.city || " "}
                 fullWidth
                 margin="normal"
@@ -114,7 +173,7 @@ const Delivery = ({ cart, onPlaceOrder, checkStock }) => {
                 name="state"
                 value={form.state}
                 onChange={handleChange}
-                error={!!errors.state}
+                error={errors.state}
                 helperText={errors.state || " "}
                 fullWidth
                 margin="normal"
@@ -154,6 +213,7 @@ const Delivery = ({ cart, onPlaceOrder, checkStock }) => {
               justifyContent: "center",
               textAlign: "center",
               maxWidth: "50vw",
+              ml: 5,
             }}
           >
             <img
@@ -167,6 +227,21 @@ const Delivery = ({ cart, onPlaceOrder, checkStock }) => {
           </Box>
         </Grid>
       </Grid>
+      <AlertDialog
+        open={alertData.open}
+        onClose={() => {
+          setAlertData((prev) => ({ ...prev, open: false }));
+          navigate("/");
+        }}
+        title={alertData.title}
+        message={alertData.message}
+        severity={alertData.severity}
+        confirmText={alertData.confirmText}
+        onConfirm={() => {
+          setAlertData({ ...alertData, open: false });
+          navigate("/");
+        }}
+      />
     </Layout>
   );
 };

@@ -39,6 +39,7 @@ const Navbar = ({
   toggleDrawer,
   searchQuery,
   setSearchQuery,
+  products,
 }) => {
   const totalItems = (cart || []).reduce((sum, item) => sum + item.quantity, 0);
 

@@ -1,14 +1,21 @@
 import React, { useState } from "react";
 import { Box, CssBaseline } from "@mui/material";
 import Navbar from "../components/navbar";
-import CategoriesArea from "../components/categories";
 import Cart from "../components/cart";
 
-const Layout = ({ children, cart, setCart, searchQuery, setSearchQuery }) => {
+const Layout = ({
+  children,
+  cart,
+  setCart,
+  searchQuery,
+  setSearchQuery,
+  products,
+}) => {
   const [open, setOpen] = useState(false);
   const toggleDrawer = () => {
     setOpen(!open);
   };
+
   return (
     <>
       <CssBaseline />
@@ -18,12 +25,14 @@ const Layout = ({ children, cart, setCart, searchQuery, setSearchQuery }) => {
         toggleDrawer={toggleDrawer}
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
+        products={products}
       />
       <Cart
         cart={cart}
         setCart={setCart}
         open={open}
         toggleDrawer={toggleDrawer}
+        products={products}
       />
       <Box
         maxWidth="xl"

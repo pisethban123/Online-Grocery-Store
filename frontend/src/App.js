@@ -6,10 +6,7 @@ import Delivery from "./pages/delivery";
 const App = () => {
   const [cart, setCart] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
-  const checkStock = () => {};
-  const onPlaceOrder = () => {};
 
-  // Optional: Persist cart state using localStorage
   useEffect(() => {
     const storedCart = localStorage.getItem("cart");
     if (storedCart) {
@@ -17,7 +14,6 @@ const App = () => {
     }
   }, []);
 
-  // Save to localStorage whenever cart changes
   useEffect(() => {
     if (cart.length > 0) {
       localStorage.setItem("cart", JSON.stringify(cart));
@@ -40,13 +36,7 @@ const App = () => {
         />
         <Route
           path="/delivery"
-          element={
-            <Delivery
-              cart={cart}
-              checkStock={checkStock}
-              onPlaceOrder={onPlaceOrder}
-            />
-          }
+          element={<Delivery cart={cart} setCart={setCart} />}
         />
       </Routes>
     </div>
