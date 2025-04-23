@@ -13,7 +13,6 @@ export const getAllProducts = async (req, res) => {
 export const deductStock = async (req, res) => {
   const items = req.body.items;
   try {
-    console.log("Items are:" + items);
     for (const item of items) {
       await Product.findOneAndUpdate(
         { productId: item.productId },
@@ -21,7 +20,6 @@ export const deductStock = async (req, res) => {
       );
     }
     res.status(200).json({ message: "Stock updated successfully" });
-    console.log("Stock updated successfully");
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Error updating stock" });
