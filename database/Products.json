@@ -1,0 +1,448 @@
+[{
+  "_id": {
+    "$oid": "67fd7c3a401fcc8d6877e0c4"
+  },
+  "productId": 1000,
+  "productName": "Fish Fingers",
+  "unitPrice": 6.5,
+  "unitQuantity": "375 gram",
+  "stock": 0,
+  "__v": 0,
+  "imageUrl": "http://localhost:5000/uploads/1000.png",
+  "subcategory": "Frozen seafood",
+  "category": "Freezer"
+},
+{
+  "_id": {
+    "$oid": "67fd7c3a401fcc8d6877e0c5"
+  },
+  "productId": 1001,
+  "productName": "Fish Fingers",
+  "unitPrice": 11,
+  "unitQuantity": "1 kg",
+  "stock": 10,
+  "__v": 0,
+  "imageUrl": "http://localhost:5000/uploads/1001.png",
+  "category": "Freezer",
+  "subcategory": "Frozen seafood"
+},
+{
+  "_id": {
+    "$oid": "67fd7c3a401fcc8d6877e0c6"
+  },
+  "productId": 1002,
+  "productName": "Hamburger Patties",
+  "unitPrice": 10,
+  "unitQuantity": "Pack 6",
+  "stock": 12,
+  "__v": 0,
+  "imageUrl": "http://localhost:5000/uploads/1002.png",
+  "category": "Meats",
+  "subcategory": "Beef"
+},
+{
+  "_id": {
+    "$oid": "67fd7c3a401fcc8d6877e0c7"
+  },
+  "productId": 1003,
+  "productName": "Shelled Prawns",
+  "unitPrice": 19,
+  "unitQuantity": "per kg",
+  "stock": 16,
+  "__v": 0,
+  "imageUrl": "http://localhost:5000/uploads/1003.png",
+  "category": "Fresh Seafood",
+  "subcategory": "Prawns"
+},
+{
+  "_id": {
+    "$oid": "67fd7c3a401fcc8d6877e0c8"
+  },
+  "productId": 1004,
+  "productName": "Tub Ice Cream",
+  "unitPrice": 6.5,
+  "unitQuantity": "1 Litre",
+  "stock": 800,
+  "__v": 0,
+  "imageUrl": "http://localhost:5000/uploads/1004.png",
+  "category": "Freezer",
+  "subcategory": "Ice Cream"
+},
+{
+  "_id": {
+    "$oid": "67fd7c3a401fcc8d6877e0c9"
+  },
+  "productId": 1005,
+  "productName": "Tub Ice Cream",
+  "unitPrice": 11,
+  "unitQuantity": "2 Litre",
+  "stock": 1200,
+  "__v": 0,
+  "imageUrl": "http://localhost:5000/uploads/1005.png",
+  "category": "Freezer",
+  "subcategory": "Ice Cream"
+},
+{
+  "_id": {
+    "$oid": "67fd7c3a401fcc8d6877e0ca"
+  },
+  "productId": 2000,
+  "productName": "Panadol",
+  "unitPrice": 5,
+  "unitQuantity": "Pack 16",
+  "stock": 3,
+  "__v": 0,
+  "imageUrl": "http://localhost:5000/uploads/2000.png",
+  "category": "Home & Health",
+  "subcategory": "Medicine"
+},
+{
+  "_id": {
+    "$oid": "67fd7c3a401fcc8d6877e0cb"
+  },
+  "productId": 2001,
+  "productName": "Panadol Extra",
+  "unitPrice": 5.5,
+  "unitQuantity": "Pack 16",
+  "stock": 1000,
+  "__v": 0,
+  "imageUrl": "http://localhost:5000/uploads/2001.png",
+  "category": "Home & Health",
+  "subcategory": "Medicine"
+},
+{
+  "_id": {
+    "$oid": "67fd7c3a401fcc8d6877e0cc"
+  },
+  "productId": 2002,
+  "productName": "Bath Soap",
+  "unitPrice": 3.5,
+  "unitQuantity": "Pack 2",
+  "stock": 500,
+  "__v": 0,
+  "imageUrl": "http://localhost:5000/uploads/2002.png",
+  "category": "Home & Health",
+  "subcategory": "Body"
+},
+{
+  "_id": {
+    "$oid": "67fd7c3a401fcc8d6877e0cd"
+  },
+  "productId": 2003,
+  "productName": "Garbage Bags Small",
+  "unitPrice": 4,
+  "unitQuantity": "Pack 10",
+  "stock": 500,
+  "__v": 0,
+  "imageUrl": "http://localhost:5000/uploads/2003.png",
+  "category": "Home & Health",
+  "subcategory": "Kitchen"
+},
+{
+  "_id": {
+    "$oid": "67fd7c3a401fcc8d6877e0ce"
+  },
+  "productId": 2004,
+  "productName": "Garbage Bags Large",
+  "unitPrice": 5,
+  "unitQuantity": "Pack 50",
+  "stock": 300,
+  "__v": 0,
+  "imageUrl": "http://localhost:5000/uploads/2004.png",
+  "category": "Home & Health",
+  "subcategory": "Kitchen"
+},
+{
+  "_id": {
+    "$oid": "67fd7c3a401fcc8d6877e0cf"
+  },
+  "productId": 2005,
+  "productName": "Washing Powder",
+  "unitPrice": 7,
+  "unitQuantity": "1 kg",
+  "stock": 800,
+  "__v": 0,
+  "imageUrl": "http://localhost:5000/uploads/2005.png",
+  "category": "Home & Health",
+  "subcategory": "Laundry"
+},
+{
+  "_id": {
+    "$oid": "67fd7c3a401fcc8d6877e0e3"
+  },
+  "productId": 2006,
+  "productName": "Liquid Bleach",
+  "unitPrice": 5,
+  "unitQuantity": "2.5 Litre Bottle",
+  "stock": 500,
+  "__v": 0,
+  "imageUrl": "http://localhost:5000/uploads/2006.png",
+  "category": "Home & Health",
+  "subcategory": "Cleaning goods"
+},
+{
+  "_id": {
+    "$oid": "67fd7c3a401fcc8d6877e0d0"
+  },
+  "productId": 3000,
+  "productName": "Cheddar Cheese",
+  "unitPrice": 8,
+  "unitQuantity": "250 gram",
+  "stock": 1000,
+  "__v": 0,
+  "imageUrl": "http://localhost:5000/uploads/3000.png",
+  "category": "Dairy",
+  "subcategory": "Cheese"
+},
+{
+  "_id": {
+    "$oid": "67fd7c3a401fcc8d6877e0d1"
+  },
+  "productId": 3001,
+  "productName": "Cheddar Cheese",
+  "unitPrice": 12,
+  "unitQuantity": "500 gram",
+  "stock": 1000,
+  "__v": 0,
+  "imageUrl": "http://localhost:5000/uploads/3001.png",
+  "category": "Dairy",
+  "subcategory": "Cheese"
+},
+{
+  "_id": {
+    "$oid": "67fd7c3a401fcc8d6877e0d2"
+  },
+  "productId": 3002,
+  "productName": "T-Bone Steak",
+  "unitPrice": 32,
+  "unitQuantity": "1 kg",
+  "stock": 200,
+  "__v": 0,
+  "imageUrl": "http://localhost:5000/uploads/3002.png",
+  "category": "Meats",
+  "subcategory": "Beef"
+},
+{
+  "_id": {
+    "$oid": "67fd7c3a401fcc8d6877e0d3"
+  },
+  "productId": 3003,
+  "productName": "Navel Oranges",
+  "unitPrice": 6,
+  "unitQuantity": "per kg",
+  "stock": 200,
+  "__v": 0,
+  "imageUrl": "http://localhost:5000/uploads/3003.png",
+  "category": "Fruits & Veg",
+  "subcategory": "Fruits"
+},
+{
+  "_id": {
+    "$oid": "67fd7c3a401fcc8d6877e0d4"
+  },
+  "productId": 3004,
+  "productName": "Bananas",
+  "unitPrice": 0.8,
+  "unitQuantity": "per kg",
+  "stock": 400,
+  "__v": 0,
+  "imageUrl": "http://localhost:5000/uploads/3004.png",
+  "category": "Fruits & Veg",
+  "subcategory": "Fruits"
+},
+{
+  "_id": {
+    "$oid": "67fd7c3a401fcc8d6877e0d5"
+  },
+  "productId": 3005,
+  "productName": "Kiwi",
+  "unitPrice": 13.5,
+  "unitQuantity": "per kg",
+  "stock": 500,
+  "__v": 0,
+  "imageUrl": "http://localhost:5000/uploads/3005.png",
+  "category": "Fruits & Veg",
+  "subcategory": "Fruits"
+},
+{
+  "_id": {
+    "$oid": "67fd7c3a401fcc8d6877e0d6"
+  },
+  "productId": 3006,
+  "productName": "Grapes",
+  "unitPrice": 12.5,
+  "unitQuantity": "per kg",
+  "stock": 200,
+  "__v": 0,
+  "imageUrl": "http://localhost:5000/uploads/3006.png",
+  "category": "Fruits & Veg",
+  "subcategory": "Fruits"
+},
+{
+  "_id": {
+    "$oid": "67fd7c3a401fcc8d6877e0d7"
+  },
+  "productId": 3007,
+  "productName": "Apples",
+  "unitPrice": 1.2,
+  "unitQuantity": "per kg",
+  "stock": 500,
+  "__v": 0,
+  "imageUrl": "http://localhost:5000/uploads/3007.png",
+  "category": "Fruits & Veg",
+  "subcategory": "Fruits"
+},
+{
+  "_id": {
+    "$oid": "67fd7c3a401fcc8d6877e0d8"
+  },
+  "productId": 4000,
+  "productName": "Earl Grey Tea Bags",
+  "unitPrice": 3,
+  "unitQuantity": "Pack 10",
+  "stock": 1200,
+  "__v": 0,
+  "imageUrl": "http://localhost:5000/uploads/4000.png",
+  "category": "Beverages",
+  "subcategory": "Tea"
+},
+{
+  "_id": {
+    "$oid": "67fd7c3a401fcc8d6877e0d9"
+  },
+  "productId": 4001,
+  "productName": "Earl Grey Tea Bags",
+  "unitPrice": 13,
+  "unitQuantity": "Pack 100",
+  "stock": 1200,
+  "__v": 0,
+  "imageUrl": "http://localhost:5000/uploads/4001.png",
+  "category": "Beverages",
+  "subcategory": "Tea"
+},
+{
+  "_id": {
+    "$oid": "67fd7c3a401fcc8d6877e0da"
+  },
+  "productId": 4002,
+  "productName": "Pure Green Tea Bags",
+  "unitPrice": 13,
+  "unitQuantity": "Pack 100",
+  "stock": 800,
+  "__v": 0,
+  "imageUrl": "http://localhost:5000/uploads/4002.png",
+  "category": "Beverages",
+  "subcategory": "Tea"
+},
+{
+  "_id": {
+    "$oid": "67fd7c3a401fcc8d6877e0db"
+  },
+  "productId": 4003,
+  "productName": "Instant Coffee",
+  "unitPrice": 20,
+  "unitQuantity": "200 gram",
+  "stock": 500,
+  "__v": 0,
+  "imageUrl": "http://localhost:5000/uploads/4003.png",
+  "category": "Beverages",
+  "subcategory": "Coffee"
+},
+{
+  "_id": {
+    "$oid": "67fd7c3a401fcc8d6877e0dc"
+  },
+  "productId": 4004,
+  "productName": "Instant Coffee",
+  "unitPrice": 30,
+  "unitQuantity": "400 gram",
+  "stock": 500,
+  "__v": 0,
+  "imageUrl": "http://localhost:5000/uploads/4004.png",
+  "category": "Beverages",
+  "subcategory": "Coffee"
+},
+{
+  "_id": {
+    "$oid": "67fd7c3a401fcc8d6877e0dd"
+  },
+  "productId": 4005,
+  "productName": "Chocolate Bar",
+  "unitPrice": 2.5,
+  "unitQuantity": "50 gram",
+  "stock": 300,
+  "__v": 0,
+  "imageUrl": "http://localhost:5000/uploads/4005.png",
+  "category": "Snacks",
+  "subcategory": ""
+},
+{
+  "_id": {
+    "$oid": "67fd7c3a401fcc8d6877e0de"
+  },
+  "productId": 5000,
+  "productName": "Dry Dog Food",
+  "unitPrice": 12,
+  "unitQuantity": "3 kg Pack",
+  "stock": 400,
+  "__v": 0,
+  "imageUrl": "http://localhost:5000/uploads/5000.png",
+  "category": "Pet food",
+  "subcategory": ""
+},
+{
+  "_id": {
+    "$oid": "67fd7c3a401fcc8d6877e0df"
+  },
+  "productId": 5001,
+  "productName": "Dry Dog Food",
+  "unitPrice": 30.5,
+  "unitQuantity": "8 kg Pack",
+  "stock": 400,
+  "__v": 0,
+  "imageUrl": "http://localhost:5000/uploads/5001.png",
+  "category": "Pet food",
+  "subcategory": ""
+},
+{
+  "_id": {
+    "$oid": "67fd7c3a401fcc8d6877e0e0"
+  },
+  "productId": 5002,
+  "productName": "Bird Food",
+  "unitPrice": 7.2,
+  "unitQuantity": "500g packet",
+  "stock": 200,
+  "__v": 0,
+  "imageUrl": "http://localhost:5000/uploads/5002.png",
+  "category": "Pet food",
+  "subcategory": ""
+},
+{
+  "_id": {
+    "$oid": "67fd7c3a401fcc8d6877e0e1"
+  },
+  "productId": 5003,
+  "productName": "Cat Food",
+  "unitPrice": 3,
+  "unitQuantity": "400g tin",
+  "stock": 200,
+  "__v": 0,
+  "imageUrl": "http://localhost:5000/uploads/5003.png",
+  "category": "Pet food",
+  "subcategory": ""
+},
+{
+  "_id": {
+    "$oid": "67fd7c3a401fcc8d6877e0e2"
+  },
+  "productId": 5004,
+  "productName": "Fish Food",
+  "unitPrice": 3,
+  "unitQuantity": "100g tin",
+  "stock": 200,
+  "__v": 0,
+  "imageUrl": "http://localhost:5000/uploads/5004.png",
+  "category": "Pet food",
+  "subcategory": ""
+}]
