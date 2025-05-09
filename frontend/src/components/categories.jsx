@@ -100,7 +100,7 @@ const CategoriesArea = ({ onSubCategorySelect }) => {
       sx={{
         position: "sticky",
         top: 0,
-        height: "100vh",
+        height: "100%",
         backgroundColor: theme.palette.primary.main,
         borderRadius: 3,
         display: "flex",
